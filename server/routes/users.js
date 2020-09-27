@@ -1,9 +1,13 @@
-var express = require('express');
+import passport from "passport";
+import express from "express";
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get(
+  "/login/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  })
+);
 
 module.exports = router;
